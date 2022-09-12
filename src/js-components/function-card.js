@@ -1,4 +1,5 @@
 function srcPoster ( el ) {
+    if ( el.poster_path === null ) return require('../assets/logo2.png');
     return `https://image.tmdb.org/t/p/w342${ el.poster_path }`;
 }
 

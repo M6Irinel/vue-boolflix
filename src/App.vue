@@ -2,9 +2,9 @@
   <div id="app">
     <div class="myNavbar">
       <div class="container navbar">
-        <h1 class="text-center fw-bold">BOOLFLIX</h1>
+        <img class="c-pointer" src="./assets/logo1.png" alt="BOOLFLIX">
         <div class="text-end">
-          <input class="form-control mb-3" v-model="query" @keyup.enter="request" type="text" placeholder="search...">
+          <input class="form-control" v-model="query" @keyup.enter="request" type="text" placeholder="search...">
         </div>
       </div>
     </div>
@@ -32,18 +32,14 @@ export default {
     }
   },
 
-  watch: {
-    query () { store.query = this.query }
-  },
-
   methods: {
 
     request () {
-      this.requestApi( 'movie' );
-      this.requestApi( 'tv' );
+      this.requestAPI( 'movie' );
+      this.requestAPI( 'tv' );
     },
 
-    requestApi ( typeSearch ) {
+    requestAPI ( typeSearch ) {
       if ( this.query.trim() === '' ) return;
       axios.get( `${ store.baseURL }${ typeSearch }`, {
         params: {
@@ -55,8 +51,8 @@ export default {
   },
 
   beforeMount () {
-    this.requestApi( 'movie' );
-    this.requestApi( 'tv' );
+    this.requestAPI( 'movie' );
+    this.requestAPI( 'tv' );
   }
 }
 </script>
@@ -77,7 +73,7 @@ body {
   left: 0;
   right: 0;
   z-index: 100;
-  background-color: #00000087;
+  background: linear-gradient(#000000 20%, #000000ba 75%, #00000000);
 }
 
 ul {
@@ -142,5 +138,9 @@ h2 {
 
 .fs-7 * {
   font-size: 0.8rem;
+}
+
+.c-pointer {
+  cursor: pointer;
 }
 </style>
