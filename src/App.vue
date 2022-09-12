@@ -9,9 +9,7 @@
       </div>
     </div>
 
-    <cardsMovie :resultMovie="resultMovie" />
-    <cardsSerieTV :resultTV="resultTV" />
-
+    <cardsMovie />
   </div>
 </template>
 
@@ -20,14 +18,12 @@
 import store from './store.js';
 import axios from 'axios';
 import cardsMovie from './components/cards-movie.vue';
-import cardsSerieTV from './components/cards-serieTV.vue';
 
 export default {
   name: 'App',
 
   components: {
-    cardsMovie,
-    cardsSerieTV
+    cardsMovie
   },
 
   data () {
@@ -38,11 +34,6 @@ export default {
 
   watch: {
     query () { store.query = this.query }
-  },
-
-  computed: {
-    resultMovie () { return store.movie },
-    resultTV () { return store.tv },
   },
 
   methods: {
